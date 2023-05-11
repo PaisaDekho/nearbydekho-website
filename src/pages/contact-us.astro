@@ -1,0 +1,10 @@
+---
+import Header from "../components/Header.astro";
+import ContactForm from "../components/contactForm";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="contact-us">
+	<Header />
+	<ContactForm client:load />
+</Layout>
