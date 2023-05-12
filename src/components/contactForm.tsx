@@ -66,7 +66,7 @@ const ContactForm = () => {
 
 				<div className="small_text">
 					<p>A product of</p>
-					<h3>ABOVEENGE TECH SOLUTIONS PVT LTD</h3>
+					<h3>ABOVE EDGE TECH SOLUTIONS PVT LTD</h3>
 				</div>
 			</div>
 
