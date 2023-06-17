@@ -60,7 +60,7 @@ const ContactForm = () => {
 						<path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
 					</svg>
 					<p>
-						45, Shivpuri Colony , Airport T - 1, Sanganer , Jaipur - 302029
+						B-288, Hari Marg, Malviya Nagar,  Jaipur (RAJASTHAN) - 302017
 					</p>
 				</div>
 
