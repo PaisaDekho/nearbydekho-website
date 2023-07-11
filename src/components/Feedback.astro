@@ -1,0 +1,53 @@
+<section class="container w-[90%] lg:w-[40%] mx-auto mt-5">
+  <h2 class="md:text-3xl text-2xl text-center font-semibold mb-5">
+    MerChant Talks
+  </h2>
+
+  <div
+    class="feedback-card bg-white p-8 shadow-lg rounded-xl flex items-center flex-col animate__animated"
+  >
+    <img
+      class="w-10 h-10 rounded-full"
+      src="https://i.pravatar.cc/150?img=70"
+      alt="Avatar"
+    />
+
+    <div class="space-y-4">
+      <h3 class="md:text-2xl text-zinc-900 text-lg font-semibold text-center">
+        John Doe
+      </h3>
+      <p
+        class="text-xs lg:text-xs text-slate-800 font-medium md:text-lg md:leading-normal text-center"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget
+        turpis in mauris luctus fringilla. Sed interdum purus a mi dignissim, in
+        scelerisque mi semper.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const cards = document.querySelectorAll(".feedback-card");
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.2,
+  };
+
+  const handleIntersect = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate__slideInUp");
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(handleIntersect, options);
+
+  cards.forEach((card) => {
+    observer.observe(card);
+  });
+</script>

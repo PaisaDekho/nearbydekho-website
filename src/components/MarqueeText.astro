@@ -1,0 +1,76 @@
+<div class="h-[50px] w-full overflow-hidden mt-[40px] relative">
+  <h3
+    class="absolute flex items-center space-x-2 text opacity-0 bg-white font-semibold text-sm md:text-xl px-10 py-2 rounded-full text-black"
+  >
+    <img src="https://d204mdjt2q4azq.cloudfront.net/wp.png" class="h-6 w-6" />
+    <span>Wp Integrated</span>
+  </h3>
+  <h3
+    class="absolute flex items-center space-x-2 text opacity-0 bg-white font-semibold text-sm md:text-xl px-10 py-2 rounded-full text-black"
+  >
+    <img src="https://d204mdjt2q4azq.cloudfront.net/wp.png" class="h-6 w-6" />
+    <span>workforce Management</span>
+  </h3>
+  <h3
+    class="absolute flex items-center space-x-2 text opacity-0 bg-white font-semibold text-sm md:text-xl px-10 py-2 rounded-full text-black"
+  >
+    <img src="https://d204mdjt2q4azq.cloudfront.net/wp.png" class="h-6 w-6" />
+    <span>inventory Management</span>
+  </h3>
+  <h3
+    class="absolute flex items-center space-x-2 text opacity-0 bg-white font-semibold text-sm md:text-xl px-10 py-2 rounded-full text-black"
+  >
+    <img
+      src="https://d204mdjt2q4azq.cloudfront.net/market.png"
+      class="h-6 w-6"
+    />
+    <span> Marketing</span>
+  </h3>
+</div>
+
+<style>
+  .text {
+    animation: example4 10s ease-out infinite;
+  }
+
+  .text:nth-child(2) {
+    animation-delay: 2s;
+  }
+  .text:nth-child(3) {
+    animation-delay: 4s;
+  }
+
+  .text:nth-child(4) {
+    animation-delay: 6s;
+  }
+
+  @media screen and (max-width: 878px) {
+    .text {
+      animation: example2 12s ease-out infinite;
+    }
+  }
+
+  @keyframes example2 {
+    0% {
+      transform: translateX(1400px);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-1400px);
+    }
+  }
+
+  @keyframes example4 {
+    0% {
+      transform: translateX(1000px);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-1000px);
+    }
+  }
+</style>

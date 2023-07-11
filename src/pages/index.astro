@@ -1,139 +1,130 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import OurFounder from "../components/OurFounder.astro";
-import SlideShow from "../components/ImageSlideShow";
+
+import MyProducts from "../components/Myproducts.astro";
+import MarqueeText from "../components/MarqueeText.astro";
+import "animate.css";
+import Feedback from "../components/Feedback.astro";
+import PricingPlan from "../components/PricingPlan.astro";
+import BusinessList from "../components/BusinessList.astro";
+import Stats from "../components/Stats.astro";
+import Background from "../components/background.astro";
 ---
 
 <Layout title="Discover Nearby  - Nearby Dekho">
-	<Header />
-	<div class="container">
-		<h1 class="heading">A New Age Community Hood</h1>
-		<p class="description">
-			Our app is the ultimate tool for those who love exploring new places and
-			meeting new people. With our powerful search engine, you can easily
-			discover nearby restaurants, coffee shops, bars, parks, and other
-			attractions that match your interests. Plus, our app also helps you
-			connect with like-minded individuals in your area, making it easy to find
-			new friends
-		</p>
+  <Header />
+  <div
+    class="flex flex-col items-center justify-around border-b border-slate-600 lg:h-[calc(100vh-80px)] h-[calc(100vh-30px)]"
+  >
+    <Background />
+    <div class="lg:flex">
+      <div class="w-full flex flex-col lg:items-start items-center">
+        <h1
+          class="md:text-8xl lg:leading-relaxed lg:text-7xl text-5xl leading-normal md:leading-relaxed font-bold animate__backInDown animate__animated"
+        >
+          <span class="heading_gradient">Better Food.</span>
+          <br />
+          <span class="heading2_gradient">Better Tech.</span>
+        </h1>
+        <p
+          class="md:text-2xl lg:text-lg md:mt-10 text-sm mb-4 font-semibold animate__fadeInLeft animate__animated"
+        >
+          Empower Your Business With Us
+          <div
+            class="bg-white md:px-16 px-8 py-3 relative inline-block rounded-lg"
+          >
+            <p
+              class="gradient_text md:text-2xl lg:text-xl text-xl font-semibold relative uppercase"
+            >
+              smart solution
+            </p>
+          </div>
+        </p>
+      </div>
+      <video
+        class="w-1/2 hidden animate__animated animate__zoomIn lg:block relative z-50 h-[50vh]"
+        muted
+        autoplay
+      >
+        <source
+          src="https://d204mdjt2q4azq.cloudfront.net/Home.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
-		<div class="box-container">
-			<div class="button-container">
-				<a
-					class="download-button"
-					href="https://apps.apple.com/us/app/your-app/id1234567890"
-				>
-					<img src="/app-store.svg" alt="Download from App Store" />
-				</a>
-				<a
-					class="download-button"
-					href="https://apps.apple.com/us/app/your-app/id1234567890"
-				>
-					<img src="/play-store.svg" alt="Download from App Store" />
-				</a>
-			</div>
-
-			<SlideShow client:load />
-		</div>
-		<div class="overlay"></div>
-	</div>
-	<!-- <Deals client:load /> -->
-	<OurFounder />
+    <div class="w-full flex flex-col items-center relative">
+      <button
+        class="sales_btn inline-block px-20 py-4 bg-black rounded-full animate__bounceIn animate__animated"
+        >Contact Sales</button
+      >
+      <MarqueeText />
+    </div>
+  </div>
+  <MyProducts />
+  <BusinessList />
+  <Feedback />
+  <PricingPlan />
+  <Stats />
 </Layout>
 
 <style>
-	.container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		height: calc(100vh -30px);
-		margin-bottom: 40px;
-		background: linear-gradient(#13151f 20%, #ff0060 110%, #ff4745 100%);
-		/* background: #13151f; */
-	}
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
 
-	.border {
-		width: 100%;
-		background: #272935;
-	}
-	.button-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		margin-bottom: 20px;
-	}
+  .gradient_text {
+    background: -webkit-linear-gradient(#f90909, #de4604);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-	.offers {
-		height: 400px;
-	}
+  .heading_gradient {
+    animation: headingColor 5s infinite linear;
+    transition: color 0.1s linear;
+  }
 
-	.box-container {
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-		width: 50%;
-		margin-top: 50px;
-	}
+  .heading2_gradient {
+    animation: heading2Color 5s infinite linear;
+    transition: color 0.1s linear;
+  }
 
-	.heading {
-		font-size: 3rem;
-		color: #ff0060;
-		background: white;
-		border-radius: 2rem;
-		padding: 0 1.2rem;
-	}
+  .sales_btn {
+    animation: salesAnim 8s infinite ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
 
-	.overlay {
-		width: 100%;
-		height: 100px;
-		background: linear-gradient(transparent, #000000b9);
-	}
+  /* Animations */
 
-	.description {
-		text-align: center;
-		width: 60%;
-		/* opacity: 0.7; */
-		font-weight: 500;
-		line-height: 1.2em;
-	}
+  @keyframes headingColor {
+    0% {
+      background: -webkit-linear-gradient(180deg, #ff0000, #ff8100, #ffc421);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    100% {
+      color: #fff;
+    }
+  }
 
-	.download-button {
-		margin: 10px 0;
-		transition: background-color 0.3s ease-in-out;
-	}
+  @keyframes heading2Color {
+    0% {
+      color: #fff;
+    }
+    100% {
+      background: -webkit-linear-gradient(180deg, #05ffee, #00b4ff, #193ef7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
 
-	.download-button > img {
-		height: 4rem;
-		margin-right: 10px;
-		width: 200px;
-	}
-
-	.download_text h2 {
-		line-height: 0.1ch;
-		font-size: 2rem;
-	}
-
-	.download_text p {
-		line-height: 0.1ch;
-		font-size: 0.8rem;
-	}
-
-	@media screen and (max-width: 480px) {
-		.heading {
-			font-size: 1.4rem;
-			margin: 20px 0;
-		}
-		.description {
-			opacity: 0.7;
-			font-size: 0.9rem;
-			width: 90%;
-			line-height: 1.6em;
-		}
-		.box-container {
-			display: flex;
-			flex-direction: column;
-			margin-top: 10px;
-		}
-	}
+  @keyframes salesAnim {
+    0% {
+      border: 3px solid #ffc421;
+    }
+    100% {
+      border: 3px solid #193ef7;
+    }
+  }
 </style>

@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyBZTkV8QR9jvmDvq6DU-eRKKTxwUMpcHL8",
-	authDomain: "nearybydekho-website.firebaseapp.com",
-	projectId: "nearybydekho-website",
-	storageBucket: "nearybydekho-website.appspot.com",
-	messagingSenderId: "652387660518",
-	appId: "1:652387660518:web:ea70b1c941622eac094127",
+  apiKey: "AIzaSyBnvysc3AU9aj4niSlbs124kTn0wa-sj2o",
+  authDomain: "nearbydekho-contactus.firebaseapp.com",
+  projectId: "nearbydekho-contactus",
+  storageBucket: "nearbydekho-contactus.appspot.com",
+  messagingSenderId: "569710205815",
+  appId: "1:569710205815:web:a6f06e7b729dff60ae1f72",
 };
 
 export const app = initializeApp(firebaseConfig);

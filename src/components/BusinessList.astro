@@ -1,0 +1,53 @@
+<div id="bussiness" class="bg-[#0a0808] mt-10 p-10 w-full animate__animated">
+  <h2 class="md:text-3xl font-semibold">
+    Ecosystem to Drive and Thrive your Business
+  </h2>
+
+  <ul class="list-none divide-y-2 divide-slate-800 md:text-xl space-y-4 mt-10">
+    <li class="pt-2">Restaurants</li>
+    <li class="pt-2">Cafe</li>
+    <li class="pt-2">Clubs</li>
+    <li class="pt-2">Bars</li>
+    <li class="flex pt-2 items-center justify-between">
+      Hotels
+      <span
+        class="text-[#d8083c] border-[#d8083c] text-sm border rounded-full px-5"
+        >UpComing</span
+      >
+    </li>
+  </ul>
+</div>
+
+<script>
+  const business = document.querySelectorAll("#bussiness");
+
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.2,
+  };
+
+  const handleIntersect = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate__flipInY");
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const obserberImg = new IntersectionObserver(handleIntersect, options);
+  business.forEach((item) => {
+    obserberImg.observe(item);
+  });
+</script>
+
+<style>
+  .upComing {
+    border: 1px solid #d8083c;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 0 10px;
+    color: #d8083c;
+  }
+</style>
