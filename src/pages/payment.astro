@@ -4,6 +4,8 @@ import { createHash } from "node:crypto";
 import { encrypt } from "../utils/ccav";
 
 const CCAVENUE_ACESSS_CODE = import.meta.env.CCAVENUE_ACCESS_CODE;
+const workingKey = import.meta.env.CCAVENUE_WORKING_KEY; //Put in the 32-Bit key shared by CCAvenues.
+
 const body = {
     merchant_id: "2590902",
     order_id: uuidV4(),
@@ -13,8 +15,6 @@ const body = {
     cancel_url: "http://localhost:3000/",
     language: "EN",
 };
-
-const workingKey = import.meta.env.CCAVENUE_WORKING_KEY; //Put in the 32-Bit key shared by CCAvenues.
 
 if (!workingKey) throw new Error("Working key not found");
 
