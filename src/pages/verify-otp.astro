@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+---
+
+<Layout title="verify-otp">
+    <Header />
+    <div class="w-full h-[500px] md:h-[600px]">
+        <form
+            method="post"
+            class="mx-auto w-[90%] lg:w-[40%] h-[300px] lg:h-auto flex flex-col justify-center text-black bg-white p-10 rounded-lg"
+        >
+            <p class="text-xs font-semibold">Please write down the OTP</p>
+            <input
+                type="tel"
+                name="phone"
+                id="phone"
+                required
+                maxlength="4"
+                placeholder="Enter the OTP here "
+                class="border text-sm font-light transition duration-100 ease-out inset-0 mt-4 border-gray-400 focus:border-rose-400 w-full px-4 py-4 rounded-lg ring-2 ring-gray-400 ring-offset-2 focus:outline-none focus:ring-2 focus:ring-rose-600"
+            />
+            <input
+                class="block w-full bg-rose-600 mt-4 py-2 cursor-pointer rounded-xl shadow-lg shadow-rose-300 text-white"
+                type="submit"
+                value="submit"
+            />
+        </form>
+    </div>
+</Layout>
+
+<script>
+    import axios from "axios";
+
+    const form = document.querySelector("form");
+
+    const query = new URLSearchParams(window.location.search);
+    const phone = query.get("phone");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const data = new FormData(e.target);
+        const value = Object.fromEntries(data.entries());
+
+        const res = await axios.post(
+            "https://tm4kk8q4u8.execute-api.ap-south-1.amazonaws.com/verify-otp",
+            {
+                phone: phone,
+                otp: value.phone.toString(),
+            }
+        );
+
+        if (res.data.statusCode === 200) {
+            window.location.href = "/";
+            localStorage.setItem("token", res.data.token);
+        } else {
+            alert("Invalid OTP");
+        }
+    };
+    form.addEventListener("submit", handleSubmit);
+</script>

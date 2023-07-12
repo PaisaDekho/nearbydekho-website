@@ -1,10 +1,10 @@
-import { defineConfig } from 'astro/config';
-import react from "@astrojs/react";
-import serviceWorker from "astrojs-service-worker";
-
+import { defineConfig } from "astro/config";
+import aws from "astro-sst/lambda";
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind(),serviceWorker()]
+  output: "server",
+  adapter: aws(),
+  integrations: [tailwind()]
 });

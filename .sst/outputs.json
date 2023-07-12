@@ -1,0 +1,6 @@
+{
+  "dev-nearbydekho-website-": {
+    "ApiEndpoint": "https://tm4kk8q4u8.execute-api.ap-south-1.amazonaws.com",
+    "tableName": "dev-nearbydekho-website-NearbyDekho-partner-otp"
+  }
+}

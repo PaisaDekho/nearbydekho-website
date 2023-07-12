@@ -1,0 +1,60 @@
+---
+import { v4 as uuidV4 } from "uuid";
+
+import { createHash } from "crypto";
+import { encrypt } from "../utils/ccav";
+
+const CCAVENUE_ACESSS_CODE = import.meta.env.CCAVENUE_ACCESS_CODE;
+const body = {
+    merchant_id: "2590902",
+    order_id: uuidV4(),
+    currency: "INR",
+    amount: "100.00",
+    redirect_url: "http://localhost:3000/",
+    cancel_url: "http://localhost:3000/",
+    language: "EN",
+};
+
+const workingKey = import.meta.env.CCAVENUE_WORKING_KEY; //Put in the 32-Bit key shared by CCAvenues.
+
+if (!workingKey) throw new Error("Working key not found");
+
+const md5 = createHash("md5").update(workingKey).digest();
+const keyBase64 = Buffer.from(md5).toString("base64");
+
+const ivBase64 = Buffer.from([
+    0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b,
+    0x0c, 0x0d, 0x0e, 0x0f,
+]).toString("base64");
+
+const para = new URLSearchParams(body);
+const encRequest = encrypt(para.toString(), keyBase64, ivBase64);
+---
+
+<form
+    id="nonseamless"
+    method="post"
+    name="redirect"
+    action="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction"
+>
+    <input
+        type="hidden"
+        id="encRequest"
+        name="encRequest"
+        value={encRequest}
+        value="4d0b538ed4bc38bb9d79790fa0e9614cae2ad85df363aedfef129185ebd4e472a03f5289a6bcf8438744dfb57a644b94abf809083c9c879c9cc51f54de1e5ac0caca9965daf23726c446ff008542c826df64c1a85f0575665f88450b681c7ea6a5395b6c34f429c0d9582fa010130a5942960221d505de4f5653fc52ec38614e49d55826a39c4aba38a36d2e7a39d7daaab4cadc222168746bf754557655c672895d8f10856b632a791f6310b343cb4ae68686053b97bfd7ebdbcd7da10bae6495008dc70bcc1fff3e946698c0cdf7bd"
+    />
+    <input
+        type="hidden"
+        name="access_code"
+        id="access_code"
+        value={CCAVENUE_ACESSS_CODE}
+    />
+</form>
+
+<script>
+    window.onload = function () {
+        const form = document.querySelector("form");
+        form.submit();
+    };
+</script>
