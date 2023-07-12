@@ -1,4 +1,4 @@
-import { createCipheriv, createDecipheriv } from "crypto";
+import { createCipheriv, createDecipheriv } from "node:crypto";
 
 function getAlgorithm(keyBase64: any) {
   var key = Buffer.from(keyBase64, "base64");
