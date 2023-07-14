@@ -36,13 +36,7 @@ const encRequest = encrypt(para.toString(), keyBase64, ivBase64);
     name="redirect"
     action="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction"
 >
-    <input
-        type="hidden"
-        id="encRequest"
-        name="encRequest"
-        value={encRequest}
-        value="4d0b538ed4bc38bb9d79790fa0e9614cae2ad85df363aedfef129185ebd4e472a03f5289a6bcf8438744dfb57a644b94abf809083c9c879c9cc51f54de1e5ac0caca9965daf23726c446ff008542c826df64c1a85f0575665f88450b681c7ea6a5395b6c34f429c0d9582fa010130a5942960221d505de4f5653fc52ec38614e49d55826a39c4aba38a36d2e7a39d7daaab4cadc222168746bf754557655c672895d8f10856b632a791f6310b343cb4ae68686053b97bfd7ebdbcd7da10bae6495008dc70bcc1fff3e946698c0cdf7bd"
-    />
+    <input type="hidden" id="encRequest" name="encRequest" value={encRequest} />
     <input
         type="hidden"
         name="access_code"
